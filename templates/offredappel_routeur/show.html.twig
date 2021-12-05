@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffredappelRouteur{% endblock %}
+
+{% block body %}
+    <h1>OffredappelRouteur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ offredappel_routeur.id }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ offredappel_routeur.dateCreation ? offredappel_routeur.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ offredappel_routeur.description }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ offredappel_routeur.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Rapport</th>
+                <td>{{ offredappel_routeur.rapport }}</td>
+            </tr>
+            <tr>
+                <th>Resultat</th>
+                <td>{{ offredappel_routeur.resultat }}</td>
+            </tr>
+            <tr>
+                <th>QrCode</th>
+                <td>{{ offredappel_routeur.qrCode }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ offredappel_routeur.reference }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ offredappel_routeur.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Valide</th>
+                <td>{{ offredappel_routeur.valide }}</td>
+            </tr>
+            <tr>
+                <th>NbrPorts</th>
+                <td>{{ offredappel_routeur.nbrPorts }}</td>
+            </tr>
+            <tr>
+                <th>VitesseTel</th>
+                <td>{{ offredappel_routeur.vitesseTel }}</td>
+            </tr>
+            <tr>
+                <th>VitesseSansFil</th>
+                <td>{{ offredappel_routeur.vitesseSansFil }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ offredappel_routeur.marque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('offredappel_routeur_index') }}">back to list</a>
+
+    <a href="{{ path('offredappel_routeur_edit', {'id': offredappel_routeur.id}) }}">edit</a>
+
+    {{ include('offredappel_routeur/_delete_form.html.twig') }}
+{% endblock %}

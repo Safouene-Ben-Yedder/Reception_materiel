@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New OffredappelSwitch{% endblock %}
+
+{% block body %}
+    <h1>Create new OffredappelSwitch</h1>
+
+    {{ include('offredappel_switch/_form.html.twig') }}
+
+    <a href="{{ path('offredappel_switch_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffredappelImprimente index{% endblock %}
+
+{% block body %}
+    <h1>OffredappelImprimente index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateCreation</th>
+                <th>Description</th>
+                <th>Commentaire</th>
+                <th>Rapport</th>
+                <th>QrCode</th>
+                <th>Resultat</th>
+                <th>Reference</th>
+                <th>Valide</th>
+                <th>Nombre</th>
+                <th>TechnologieImpression</th>
+                <th>VitesseImpression</th>
+                <th>ResolutionImpression</th>
+                <th>Marque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offredappel_imprimente in offredappel_imprimentes %}
+            <tr>
+                <td>{{ offredappel_imprimente.id }}</td>
+                <td>{{ offredappel_imprimente.dateCreation ? offredappel_imprimente.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ offredappel_imprimente.description }}</td>
+                <td>{{ offredappel_imprimente.commentaire }}</td>
+                <td>{{ offredappel_imprimente.rapport }}</td>
+                <td>{{ offredappel_imprimente.qrCode }}</td>
+                <td>{{ offredappel_imprimente.resultat }}</td>
+                <td>{{ offredappel_imprimente.reference }}</td>
+                <td>{{ offredappel_imprimente.valide }}</td>
+                <td>{{ offredappel_imprimente.nombre }}</td>
+                <td>{{ offredappel_imprimente.technologieImpression }}</td>
+                <td>{{ offredappel_imprimente.vitesseImpression }}</td>
+                <td>{{ offredappel_imprimente.resolutionImpression }}</td>
+                <td>{{ offredappel_imprimente.marque }}</td>
+                <td>
+                    <a href="{{ path('offredappel_imprimente_show', {'id': offredappel_imprimente.id}) }}">show</a>
+                    <a href="{{ path('offredappel_imprimente_edit', {'id': offredappel_imprimente.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offredappel_imprimente_new') }}">Create new</a>
+{% endblock %}

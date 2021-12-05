@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffredappelPcperso index{% endblock %}
+
+{% block body %}
+    <h1>OffredappelPcperso index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateCreation</th>
+                <th>Description</th>
+                <th>Commentaire</th>
+                <th>Rapport</th>
+                <th>Resultat</th>
+                <th>QrCode</th>
+                <th>Reference</th>
+                <th>Valide</th>
+                <th>Nombre</th>
+                <th>Ram</th>
+                <th>Storage</th>
+                <th>Cpu</th>
+                <th>CpuCores</th>
+                <th>CpuThreadsParCore</th>
+                <th>CpuMaxClock</th>
+                <th>Gpu</th>
+                <th>GpuMemory</th>
+                <th>Marque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offredappel_pcperso in offredappel_pcpersos %}
+            <tr>
+                <td>{{ offredappel_pcperso.id }}</td>
+                <td>{{ offredappel_pcperso.dateCreation ? offredappel_pcperso.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ offredappel_pcperso.description }}</td>
+                <td>{{ offredappel_pcperso.commentaire }}</td>
+                <td>{{ offredappel_pcperso.rapport }}</td>
+                <td>{{ offredappel_pcperso.resultat }}</td>
+                <td>{{ offredappel_pcperso.qrCode }}</td>
+                <td>{{ offredappel_pcperso.reference }}</td>
+                <td>{{ offredappel_pcperso.valide }}</td>
+                <td>{{ offredappel_pcperso.nombre }}</td>
+                <td>{{ offredappel_pcperso.ram }}</td>
+                <td>{{ offredappel_pcperso.storage }}</td>
+                <td>{{ offredappel_pcperso.cpu }}</td>
+                <td>{{ offredappel_pcperso.cpuCores }}</td>
+                <td>{{ offredappel_pcperso.cpuThreadsParCore }}</td>
+                <td>{{ offredappel_pcperso.cpuMaxClock }}</td>
+                <td>{{ offredappel_pcperso.gpu }}</td>
+                <td>{{ offredappel_pcperso.gpuMemory }}</td>
+                <td>{{ offredappel_pcperso.marque }}</td>
+                <td>
+                    <a href="{{ path('offredappel_pcperso_show', {'id': offredappel_pcperso.id}) }}">show</a>
+                    <a href="{{ path('offredappel_pcperso_edit', {'id': offredappel_pcperso.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="20">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offredappel_pcperso_new') }}">Create new</a>
+{% endblock %}

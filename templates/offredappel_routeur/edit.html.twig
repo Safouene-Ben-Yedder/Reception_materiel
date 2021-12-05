@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit OffredappelRouteur{% endblock %}
+
+{% block body %}
+    <h1>Edit OffredappelRouteur</h1>
+
+    {{ include('offredappel_routeur/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('offredappel_routeur_index') }}">back to list</a>
+
+    {{ include('offredappel_routeur/_delete_form.html.twig') }}
+{% endblock %}

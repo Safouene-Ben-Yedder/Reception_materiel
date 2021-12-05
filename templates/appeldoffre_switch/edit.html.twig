@@ -1,0 +1,13 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}Edit AppeldoffreSwitch{% endblock %}
+
+{% block body %}
+    <h1>Edit AppeldoffreSwitch</h1>
+
+    {{ include('appeldoffre_switch/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('appeldoffre_switch_index') }}">back to list</a>
+
+    {{ include('appeldoffre_switch/_delete_form.html.twig') }}
+{% endblock %}

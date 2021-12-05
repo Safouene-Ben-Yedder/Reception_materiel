@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New OffredappelPcsds{% endblock %}
+
+{% block body %}
+    <h1>Create new OffredappelPcsds</h1>
+
+    {{ include('offredappel_pcsds/_form.html.twig') }}
+
+    <a href="{{ path('offredappel_pcsds_index') }}">back to list</a>
+{% endblock %}

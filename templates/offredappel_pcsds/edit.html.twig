@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit OffredappelPcsds{% endblock %}
+
+{% block body %}
+    <h1>Edit OffredappelPcsds</h1>
+
+    {{ include('offredappel_pcsds/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('offredappel_pcsds_index') }}">back to list</a>
+
+    {{ include('offredappel_pcsds/_delete_form.html.twig') }}
+{% endblock %}

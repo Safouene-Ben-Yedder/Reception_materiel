@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffredappelSwitch{% endblock %}
+
+{% block body %}
+    <h1>OffredappelSwitch</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ offredappel_switch.id }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ offredappel_switch.dateCreation ? offredappel_switch.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ offredappel_switch.description }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ offredappel_switch.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Rapport</th>
+                <td>{{ offredappel_switch.rapport }}</td>
+            </tr>
+            <tr>
+                <th>Resultat</th>
+                <td>{{ offredappel_switch.resultat }}</td>
+            </tr>
+            <tr>
+                <th>QrCode</th>
+                <td>{{ offredappel_switch.qrCode }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ offredappel_switch.reference }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ offredappel_switch.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Valide</th>
+                <td>{{ offredappel_switch.valide }}</td>
+            </tr>
+            <tr>
+                <th>NbrPorts</th>
+                <td>{{ offredappel_switch.nbrPorts }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ offredappel_switch.marque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('offredappel_switch_index') }}">back to list</a>
+
+    <a href="{{ path('offredappel_switch_edit', {'id': offredappel_switch.id}) }}">edit</a>
+
+    {{ include('offredappel_switch/_delete_form.html.twig') }}
+{% endblock %}

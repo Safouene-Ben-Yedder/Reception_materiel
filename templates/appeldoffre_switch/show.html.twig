@@ -1,0 +1,62 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}AppeldoffreSwitch{% endblock %}
+
+{% block body %}
+    <h1>AppeldoffreSwitch</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ appeldoffre_switch.id }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ appeldoffre_switch.etat }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ appeldoffre_switch.dateCreation ? appeldoffre_switch.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ appeldoffre_switch.description }}</td>
+            </tr>
+            <tr>
+                <th>DateLimite</th>
+                <td>{{ appeldoffre_switch.dateLimite ? appeldoffre_switch.dateLimite|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateValidation</th>
+                <td>{{ appeldoffre_switch.dateValidation ? appeldoffre_switch.dateValidation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ appeldoffre_switch.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ appeldoffre_switch.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>NbrPorts</th>
+                <td>{{ appeldoffre_switch.nbrPorts }}</td>
+            </tr>
+            <tr>
+                <th>Rapport</th>
+                <td>{{ appeldoffre_switch.rapport }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ appeldoffre_switch.marque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('appeldoffre_switch_index') }}">back to list</a>
+
+    <a href="{{ path('appeldoffre_switch_edit', {'id': appeldoffre_switch.id}) }}">edit</a>
+
+    {{ include('appeldoffre_switch/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New OffredappelPcperso{% endblock %}
+
+{% block body %}
+    <h1>Create new OffredappelPcperso</h1>
+
+    {{ include('offredappel_pcperso/_form.html.twig') }}
+
+    <a href="{{ path('offredappel_pcperso_index') }}">back to list</a>
+{% endblock %}

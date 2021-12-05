@@ -1,0 +1,57 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}AppeldoffreRouteur index{% endblock %}
+
+{% block body %}
+    <h1>AppeldoffreRouteur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Etat</th>
+                <th>DateCreation</th>
+                <th>DateLimite</th>
+                <th>Description</th>
+                <th>DateValidation</th>
+                <th>Nombre</th>
+                <th>Commentaire</th>
+                <th>NbrPorts</th>
+                <th>VitesseTel</th>
+                <th>VitesseSansFil</th>
+                <th>Rapport</th>
+                <th>Marque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appeldoffre_routeur in appeldoffre_routeurs %}
+            <tr>
+                <td>{{ appeldoffre_routeur.id }}</td>
+                <td>{{ appeldoffre_routeur.etat }}</td>
+                <td>{{ appeldoffre_routeur.dateCreation ? appeldoffre_routeur.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ appeldoffre_routeur.dateLimite ? appeldoffre_routeur.dateLimite|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_routeur.description }}</td>
+                <td>{{ appeldoffre_routeur.dateValidation ? appeldoffre_routeur.dateValidation|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_routeur.nombre }}</td>
+                <td>{{ appeldoffre_routeur.commentaire }}</td>
+                <td>{{ appeldoffre_routeur.nbrPorts }}</td>
+                <td>{{ appeldoffre_routeur.vitesseTel }}</td>
+                <td>{{ appeldoffre_routeur.vitesseSansFil }}</td>
+                <td>{{ appeldoffre_routeur.rapport }}</td>
+                <td>{{ appeldoffre_routeur.marque }}</td>
+                <td>
+                    <a href="{{ path('appeldoffre_routeur_show', {'id': appeldoffre_routeur.id}) }}">show</a>
+                    <a href="{{ path('appeldoffre_routeur_edit', {'id': appeldoffre_routeur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('appeldoffre_routeur_new') }}">Create new</a>
+{% endblock %}

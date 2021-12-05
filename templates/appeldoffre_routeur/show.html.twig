@@ -1,0 +1,70 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}AppeldoffreRouteur{% endblock %}
+
+{% block body %}
+    <h1>AppeldoffreRouteur</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ appeldoffre_routeur.id }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ appeldoffre_routeur.etat }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ appeldoffre_routeur.dateCreation ? appeldoffre_routeur.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateLimite</th>
+                <td>{{ appeldoffre_routeur.dateLimite ? appeldoffre_routeur.dateLimite|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ appeldoffre_routeur.description }}</td>
+            </tr>
+            <tr>
+                <th>DateValidation</th>
+                <td>{{ appeldoffre_routeur.dateValidation ? appeldoffre_routeur.dateValidation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ appeldoffre_routeur.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ appeldoffre_routeur.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>NbrPorts</th>
+                <td>{{ appeldoffre_routeur.nbrPorts }}</td>
+            </tr>
+            <tr>
+                <th>VitesseTel</th>
+                <td>{{ appeldoffre_routeur.vitesseTel }}</td>
+            </tr>
+            <tr>
+                <th>VitesseSansFil</th>
+                <td>{{ appeldoffre_routeur.vitesseSansFil }}</td>
+            </tr>
+            <tr>
+                <th>Rapport</th>
+                <td>{{ appeldoffre_routeur.rapport }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ appeldoffre_routeur.marque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('appeldoffre_routeur_index') }}">back to list</a>
+
+    <a href="{{ path('appeldoffre_routeur_edit', {'id': appeldoffre_routeur.id}) }}">edit</a>
+
+    {{ include('appeldoffre_routeur/_delete_form.html.twig') }}
+{% endblock %}

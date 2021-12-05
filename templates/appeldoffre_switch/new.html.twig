@@ -1,0 +1,11 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}New AppeldoffreSwitch{% endblock %}
+
+{% block body %}
+    <h1>Create new AppeldoffreSwitch</h1>
+
+    {{ include('appeldoffre_switch/_form.html.twig') }}
+
+    <a href="{{ path('appeldoffre_switch_index') }}">back to list</a>
+{% endblock %}

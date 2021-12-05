@@ -1,0 +1,90 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}AppeldoffrePcperso{% endblock %}
+
+{% block body %}
+    <h1>AppeldoffrePcperso</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ appeldoffre_pcperso.id }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ appeldoffre_pcperso.etat }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ appeldoffre_pcperso.dateCreation ? appeldoffre_pcperso.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ appeldoffre_pcperso.description }}</td>
+            </tr>
+            <tr>
+                <th>DateLimite</th>
+                <td>{{ appeldoffre_pcperso.dateLimite ? appeldoffre_pcperso.dateLimite|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateValidation</th>
+                <td>{{ appeldoffre_pcperso.dateValidation ? appeldoffre_pcperso.dateValidation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ appeldoffre_pcperso.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ appeldoffre_pcperso.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Ram</th>
+                <td>{{ appeldoffre_pcperso.ram }}</td>
+            </tr>
+            <tr>
+                <th>Storage</th>
+                <td>{{ appeldoffre_pcperso.storage }}</td>
+            </tr>
+            <tr>
+                <th>Cpu</th>
+                <td>{{ appeldoffre_pcperso.cpu }}</td>
+            </tr>
+            <tr>
+                <th>CpuCores</th>
+                <td>{{ appeldoffre_pcperso.cpuCores }}</td>
+            </tr>
+            <tr>
+                <th>CpuThreadsParCore</th>
+                <td>{{ appeldoffre_pcperso.cpuThreadsParCore }}</td>
+            </tr>
+            <tr>
+                <th>CpuMaxClock</th>
+                <td>{{ appeldoffre_pcperso.cpuMaxClock }}</td>
+            </tr>
+            <tr>
+                <th>Gpu</th>
+                <td>{{ appeldoffre_pcperso.gpu }}</td>
+            </tr>
+            <tr>
+                <th>GpuMemory</th>
+                <td>{{ appeldoffre_pcperso.gpuMemory }}</td>
+            </tr>
+            <tr>
+                <th>Rapport</th>
+                <td>{{ appeldoffre_pcperso.rapport }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ appeldoffre_pcperso.marque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('appeldoffre_pcperso_index') }}">back to list</a>
+
+    <a href="{{ path('appeldoffre_pcperso_edit', {'id': appeldoffre_pcperso.id}) }}">edit</a>
+
+    {{ include('appeldoffre_pcperso/_delete_form.html.twig') }}
+{% endblock %}

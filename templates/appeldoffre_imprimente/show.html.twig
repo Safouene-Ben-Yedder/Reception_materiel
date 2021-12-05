@@ -1,0 +1,70 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}AppeldoffreImprimente{% endblock %}
+
+{% block body %}
+    <h1>AppeldoffreImprimente</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ appeldoffre_imprimente.id }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ appeldoffre_imprimente.etat }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ appeldoffre_imprimente.dateCreation ? appeldoffre_imprimente.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ appeldoffre_imprimente.description }}</td>
+            </tr>
+            <tr>
+                <th>DateLimite</th>
+                <td>{{ appeldoffre_imprimente.dateLimite ? appeldoffre_imprimente.dateLimite|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateValidation</th>
+                <td>{{ appeldoffre_imprimente.dateValidation ? appeldoffre_imprimente.dateValidation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ appeldoffre_imprimente.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ appeldoffre_imprimente.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>TechnologieImpression</th>
+                <td>{{ appeldoffre_imprimente.technologieImpression }}</td>
+            </tr>
+            <tr>
+                <th>VitesseImpression</th>
+                <td>{{ appeldoffre_imprimente.vitesseImpression }}</td>
+            </tr>
+            <tr>
+                <th>ResolutionImpression</th>
+                <td>{{ appeldoffre_imprimente.resolutionImpression }}</td>
+            </tr>
+            <tr>
+                <th>Rapport</th>
+                <td>{{ appeldoffre_imprimente.rapport }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ appeldoffre_imprimente.marque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('appeldoffre_imprimente_index') }}">back to list</a>
+
+    <a href="{{ path('appeldoffre_imprimente_edit', {'id': appeldoffre_imprimente.id}) }}">edit</a>
+
+    {{ include('appeldoffre_imprimente/_delete_form.html.twig') }}
+{% endblock %}

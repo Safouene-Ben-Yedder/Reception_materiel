@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffredappelPcsds index{% endblock %}
+
+{% block body %}
+    <h1>OffredappelPcsds index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateCreation</th>
+                <th>Description</th>
+                <th>Commentaire</th>
+                <th>Rapport</th>
+                <th>Resultat</th>
+                <th>QrCode</th>
+                <th>Reference</th>
+                <th>Nombre</th>
+                <th>Valide</th>
+                <th>Marque</th>
+                <th>Ram</th>
+                <th>Storage</th>
+                <th>Cpu</th>
+                <th>Cpu_cores</th>
+                <th>Cpu_threads_par_core</th>
+                <th>Cpu_max_clock</th>
+                <th>Gpu</th>
+                <th>Gpu_memory</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offredappel_pcsd in offredappel_pcsds %}
+            <tr>
+                <td>{{ offredappel_pcsd.id }}</td>
+                <td>{{ offredappel_pcsd.dateCreation ? offredappel_pcsd.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ offredappel_pcsd.description }}</td>
+                <td>{{ offredappel_pcsd.commentaire }}</td>
+                <td>{{ offredappel_pcsd.rapport }}</td>
+                <td>{{ offredappel_pcsd.resultat }}</td>
+                <td>{{ offredappel_pcsd.qrCode }}</td>
+                <td>{{ offredappel_pcsd.reference }}</td>
+                <td>{{ offredappel_pcsd.nombre }}</td>
+                <td>{{ offredappel_pcsd.valide }}</td>
+                <td>{{ offredappel_pcsd.marque }}</td>
+                <td>{{ offredappel_pcsd.ram }}</td>
+                <td>{{ offredappel_pcsd.storage }}</td>
+                <td>{{ offredappel_pcsd.cpu }}</td>
+                <td>{{ offredappel_pcsd.cpuCores }}</td>
+                <td>{{ offredappel_pcsd.cpuThreadsParCore }}</td>
+                <td>{{ offredappel_pcsd.cpuMaxClock }}</td>
+                <td>{{ offredappel_pcsd.gpu }}</td>
+                <td>{{ offredappel_pcsd.gpuMemory }}</td>
+                <td>
+                    <a href="{{ path('offredappel_pcsds_show', {'id': offredappel_pcsd.id}) }}">show</a>
+                    <a href="{{ path('offredappel_pcsds_edit', {'id': offredappel_pcsd.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="20">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offredappel_pcsds_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffredappelRouteur index{% endblock %}
+
+{% block body %}
+    <h1>OffredappelRouteur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateCreation</th>
+                <th>Description</th>
+                <th>Commentaire</th>
+                <th>Rapport</th>
+                <th>Resultat</th>
+                <th>QrCode</th>
+                <th>Reference</th>
+                <th>Nombre</th>
+                <th>Valide</th>
+                <th>NbrPorts</th>
+                <th>VitesseTel</th>
+                <th>VitesseSansFil</th>
+                <th>Marque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offredappel_routeur in offredappel_routeurs %}
+            <tr>
+                <td>{{ offredappel_routeur.id }}</td>
+                <td>{{ offredappel_routeur.dateCreation ? offredappel_routeur.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ offredappel_routeur.description }}</td>
+                <td>{{ offredappel_routeur.commentaire }}</td>
+                <td>{{ offredappel_routeur.rapport }}</td>
+                <td>{{ offredappel_routeur.resultat }}</td>
+                <td>{{ offredappel_routeur.qrCode }}</td>
+                <td>{{ offredappel_routeur.reference }}</td>
+                <td>{{ offredappel_routeur.nombre }}</td>
+                <td>{{ offredappel_routeur.valide }}</td>
+                <td>{{ offredappel_routeur.nbrPorts }}</td>
+                <td>{{ offredappel_routeur.vitesseTel }}</td>
+                <td>{{ offredappel_routeur.vitesseSansFil }}</td>
+                <td>{{ offredappel_routeur.marque }}</td>
+                <td>
+                    <a href="{{ path('offredappel_routeur_show', {'id': offredappel_routeur.id}) }}">show</a>
+                    <a href="{{ path('offredappel_routeur_edit', {'id': offredappel_routeur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offredappel_routeur_new') }}">Create new</a>
+{% endblock %}

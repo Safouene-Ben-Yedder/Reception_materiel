@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New OffredappelRouteur{% endblock %}
+
+{% block body %}
+    <h1>Create new OffredappelRouteur</h1>
+
+    {{ include('offredappel_routeur/_form.html.twig') }}
+
+    <a href="{{ path('offredappel_routeur_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}AppeldoffrePcsds{% endblock %}
+
+{% block body %}
+    <h1>AppeldoffrePcsds</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ appeldoffre_pcsd.id }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ appeldoffre_pcsd.etat }}</td>
+            </tr>
+            <tr>
+                <th>Profile</th>
+                <td>{{ appeldoffre_pcsd.profile }}</td>
+            </tr>
+            <tr>
+                <th>ProfileAppel</th>
+                <td>{{ appeldoffre_pcsd.profileAppel }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ appeldoffre_pcsd.dateCreation ? appeldoffre_pcsd.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ appeldoffre_pcsd.description }}</td>
+            </tr>
+            <tr>
+                <th>DateLimite</th>
+                <td>{{ appeldoffre_pcsd.dateLimite ? appeldoffre_pcsd.dateLimite|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>DateValidation</th>
+                <td>{{ appeldoffre_pcsd.dateValidation ? appeldoffre_pcsd.dateValidation|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ appeldoffre_pcsd.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ appeldoffre_pcsd.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Rapport</th>
+                <td>{{ appeldoffre_pcsd.rapport }}</td>
+            </tr>
+            <tr>
+                <th>Ram</th>
+                <td>{{ appeldoffre_pcsd.ram }}</td>
+            </tr>
+            <tr>
+                <th>Storage</th>
+                <td>{{ appeldoffre_pcsd.storage }}</td>
+            </tr>
+            <tr>
+                <th>Cpu</th>
+                <td>{{ appeldoffre_pcsd.cpu }}</td>
+            </tr>
+            <tr>
+                <th>Cpu_cores</th>
+                <td>{{ appeldoffre_pcsd.cpuCores }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ appeldoffre_pcsd.marque }}</td>
+            </tr>
+            <tr>
+                <th>Cpu_threads_par_core</th>
+                <td>{{ appeldoffre_pcsd.cpuThreadsParCore }}</td>
+            </tr>
+            <tr>
+                <th>Cpu_max_clock</th>
+                <td>{{ appeldoffre_pcsd.cpuMaxClock }}</td>
+            </tr>
+            <tr>
+                <th>Gpu</th>
+                <td>{{ appeldoffre_pcsd.gpu }}</td>
+            </tr>
+            <tr>
+                <th>Gpu_memory</th>
+                <td>{{ appeldoffre_pcsd.gpuMemory }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('appeldoffre_pcsds_index') }}">back to list</a>
+
+    <a href="{{ path('appeldoffre_pcsds_edit', {'id': appeldoffre_pcsd.id}) }}">edit</a>
+
+    {{ include('appeldoffre_pcsds/_delete_form.html.twig') }}
+{% endblock %}

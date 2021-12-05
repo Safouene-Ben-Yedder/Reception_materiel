@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffredappelSwitch index{% endblock %}
+
+{% block body %}
+    <h1>OffredappelSwitch index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>DateCreation</th>
+                <th>Description</th>
+                <th>Commentaire</th>
+                <th>Rapport</th>
+                <th>Resultat</th>
+                <th>QrCode</th>
+                <th>Reference</th>
+                <th>Nombre</th>
+                <th>Valide</th>
+                <th>NbrPorts</th>
+                <th>Marque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for offredappel_switch in offredappel_switches %}
+            <tr>
+                <td>{{ offredappel_switch.id }}</td>
+                <td>{{ offredappel_switch.dateCreation ? offredappel_switch.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ offredappel_switch.description }}</td>
+                <td>{{ offredappel_switch.commentaire }}</td>
+                <td>{{ offredappel_switch.rapport }}</td>
+                <td>{{ offredappel_switch.resultat }}</td>
+                <td>{{ offredappel_switch.qrCode }}</td>
+                <td>{{ offredappel_switch.reference }}</td>
+                <td>{{ offredappel_switch.nombre }}</td>
+                <td>{{ offredappel_switch.valide }}</td>
+                <td>{{ offredappel_switch.nbrPorts }}</td>
+                <td>{{ offredappel_switch.marque }}</td>
+                <td>
+                    <a href="{{ path('offredappel_switch_show', {'id': offredappel_switch.id}) }}">show</a>
+                    <a href="{{ path('offredappel_switch_edit', {'id': offredappel_switch.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('offredappel_switch_new') }}">Create new</a>
+{% endblock %}

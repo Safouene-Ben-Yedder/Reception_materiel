@@ -1,0 +1,57 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}AppeldoffreImprimente index{% endblock %}
+
+{% block body %}
+    <h1>AppeldoffreImprimente index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Etat</th>
+                <th>DateCreation</th>
+                <th>Description</th>
+                <th>DateLimite</th>
+                <th>DateValidation</th>
+                <th>Nombre</th>
+                <th>Commentaire</th>
+                <th>TechnologieImpression</th>
+                <th>VitesseImpression</th>
+                <th>ResolutionImpression</th>
+                <th>Rapport</th>
+                <th>Marque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appeldoffre_imprimente in appeldoffre_imprimentes %}
+            <tr>
+                <td>{{ appeldoffre_imprimente.id }}</td>
+                <td>{{ appeldoffre_imprimente.etat }}</td>
+                <td>{{ appeldoffre_imprimente.dateCreation ? appeldoffre_imprimente.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ appeldoffre_imprimente.description }}</td>
+                <td>{{ appeldoffre_imprimente.dateLimite ? appeldoffre_imprimente.dateLimite|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_imprimente.dateValidation ? appeldoffre_imprimente.dateValidation|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_imprimente.nombre }}</td>
+                <td>{{ appeldoffre_imprimente.commentaire }}</td>
+                <td>{{ appeldoffre_imprimente.technologieImpression }}</td>
+                <td>{{ appeldoffre_imprimente.vitesseImpression }}</td>
+                <td>{{ appeldoffre_imprimente.resolutionImpression }}</td>
+                <td>{{ appeldoffre_imprimente.rapport }}</td>
+                <td>{{ appeldoffre_imprimente.marque }}</td>
+                <td>
+                    <a href="{{ path('appeldoffre_imprimente_show', {'id': appeldoffre_imprimente.id}) }}">show</a>
+                    <a href="{{ path('appeldoffre_imprimente_edit', {'id': appeldoffre_imprimente.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('appeldoffre_imprimente_new') }}">Create new</a>
+{% endblock %}

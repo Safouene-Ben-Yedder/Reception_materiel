@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}OffredappelImprimente{% endblock %}
+
+{% block body %}
+    <h1>OffredappelImprimente</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ offredappel_imprimente.id }}</td>
+            </tr>
+            <tr>
+                <th>DateCreation</th>
+                <td>{{ offredappel_imprimente.dateCreation ? offredappel_imprimente.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ offredappel_imprimente.description }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ offredappel_imprimente.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Rapport</th>
+                <td>{{ offredappel_imprimente.rapport }}</td>
+            </tr>
+            <tr>
+                <th>QrCode</th>
+                <td>{{ offredappel_imprimente.qrCode }}</td>
+            </tr>
+            <tr>
+                <th>Resultat</th>
+                <td>{{ offredappel_imprimente.resultat }}</td>
+            </tr>
+            <tr>
+                <th>Reference</th>
+                <td>{{ offredappel_imprimente.reference }}</td>
+            </tr>
+            <tr>
+                <th>Valide</th>
+                <td>{{ offredappel_imprimente.valide }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ offredappel_imprimente.nombre }}</td>
+            </tr>
+            <tr>
+                <th>TechnologieImpression</th>
+                <td>{{ offredappel_imprimente.technologieImpression }}</td>
+            </tr>
+            <tr>
+                <th>VitesseImpression</th>
+                <td>{{ offredappel_imprimente.vitesseImpression }}</td>
+            </tr>
+            <tr>
+                <th>ResolutionImpression</th>
+                <td>{{ offredappel_imprimente.resolutionImpression }}</td>
+            </tr>
+            <tr>
+                <th>Marque</th>
+                <td>{{ offredappel_imprimente.marque }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('offredappel_imprimente_index') }}">back to list</a>
+
+    <a href="{{ path('offredappel_imprimente_edit', {'id': offredappel_imprimente.id}) }}">edit</a>
+
+    {{ include('offredappel_imprimente/_delete_form.html.twig') }}
+{% endblock %}

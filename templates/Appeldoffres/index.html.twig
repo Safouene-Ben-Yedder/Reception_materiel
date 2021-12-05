@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AppeldoffreImprimente index{% endblock %}
+
+{% block body %}
+    <h1>Les appels d'offres des imprimentes</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Etat</th>
+                <th>DateCreation</th>
+                <th>Description</th>
+                <th>DateLimite</th>
+                <th>DateValidation</th>
+                <th>Nombre</th>
+                <th>Commentaire</th>
+                <th>TechnologieImpression</th>
+                <th>VitesseImpression</th>
+                <th>ResolutionImpression</th>
+                <th>Rapport</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appeldoffre_imprimente in appeldoffre_imprimentes %}
+            <tr>
+                <td>{{ appeldoffre_imprimente.id }}</td>
+                <td>{{ appeldoffre_imprimente.etat }}</td>
+                <td>{{ appeldoffre_imprimente.dateCreation ? appeldoffre_imprimente.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ appeldoffre_imprimente.description }}</td>
+                <td>{{ appeldoffre_imprimente.dateLimite ? appeldoffre_imprimente.dateLimite|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_imprimente.dateValidation ? appeldoffre_imprimente.dateValidation|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_imprimente.nombre }}</td>
+                <td>{{ appeldoffre_imprimente.commentaire }}</td>
+                <td>{{ appeldoffre_imprimente.technologieImpression }}</td>
+                <td>{{ appeldoffre_imprimente.vitesseImpression }}</td>
+                <td>{{ appeldoffre_imprimente.resolutionImpression }}</td>
+                <td>{{ appeldoffre_imprimente.rapport }}</td>
+
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+    <h1>Les appels d'offres des routeurs</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Etat</th>
+                <th>DateCreation</th>
+                <th>DateLimite</th>
+                <th>Description</th>
+                <th>DateValidation</th>
+                <th>Nombre</th>
+                <th>Commentaire</th>
+                <th>NbrPorts</th>
+                <th>VitesseTel</th>
+                <th>VitesseSansFil</th>
+                <th>Rapport</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appeldoffre_routeur in appeldoffre_routeurs %}
+            <tr>
+                <td>{{ appeldoffre_routeur.id }}</td>
+                <td>{{ appeldoffre_routeur.etat }}</td>
+                <td>{{ appeldoffre_routeur.dateCreation ? appeldoffre_routeur.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ appeldoffre_routeur.dateLimite ? appeldoffre_routeur.dateLimite|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_routeur.description }}</td>
+                <td>{{ appeldoffre_routeur.dateValidation ? appeldoffre_routeur.dateValidation|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_routeur.nombre }}</td>
+                <td>{{ appeldoffre_routeur.commentaire }}</td>
+                <td>{{ appeldoffre_routeur.nbrPorts }}</td>
+                <td>{{ appeldoffre_routeur.vitesseTel }}</td>
+                <td>{{ appeldoffre_routeur.vitesseSansFil }}</td>
+                <td>{{ appeldoffre_routeur.rapport }}</td>
+                <td>
+                    <a href="{{ path('appeldoffre_routeur_show', {'id': appeldoffre_routeur.id}) }}">show</a>
+                    <a href="{{ path('appeldoffre_routeur_edit', {'id': appeldoffre_routeur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="13">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+  <h1>Les appels d'offres des switches</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Etat</th>
+                <th>DateCreation</th>
+                <th>Description</th>
+                <th>DateLimite</th>
+                <th>DateValidation</th>
+                <th>Nombre</th>
+                <th>Commentaire</th>
+                <th>NbrPorts</th>
+                <th>Rapport</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appeldoffre_switch in appeldoffre_switches %}
+            <tr>
+                <td>{{ appeldoffre_switch.id }}</td>
+                <td>{{ appeldoffre_switch.etat }}</td>
+                <td>{{ appeldoffre_switch.dateCreation ? appeldoffre_switch.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ appeldoffre_switch.description }}</td>
+                <td>{{ appeldoffre_switch.dateLimite ? appeldoffre_switch.dateLimite|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_switch.dateValidation ? appeldoffre_switch.dateValidation|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_switch.nombre }}</td>
+                <td>{{ appeldoffre_switch.commentaire }}</td>
+                <td>{{ appeldoffre_switch.nbrPorts }}</td>
+                <td>{{ appeldoffre_switch.rapport }}</td>
+                <td>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

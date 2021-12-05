@@ -1,0 +1,67 @@
+{% extends 'base1.html.twig' %}
+
+{% block title %}AppeldoffrePcperso index{% endblock %}
+
+{% block body %}
+    <h1>AppeldoffrePcperso index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Etat</th>
+                <th>DateCreation</th>
+                <th>Description</th>
+                <th>DateLimite</th>
+                <th>DateValidation</th>
+                <th>Nombre</th>
+                <th>Commentaire</th>
+                <th>Ram</th>
+                <th>Storage</th>
+                <th>Cpu</th>
+                <th>CpuCores</th>
+                <th>CpuThreadsParCore</th>
+                <th>CpuMaxClock</th>
+                <th>Gpu</th>
+                <th>GpuMemory</th>
+                <th>Rapport</th>
+                <th>Marque</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for appeldoffre_pcperso in appeldoffre_pcpersos %}
+            <tr>
+                <td>{{ appeldoffre_pcperso.id }}</td>
+                <td>{{ appeldoffre_pcperso.etat }}</td>
+                <td>{{ appeldoffre_pcperso.dateCreation ? appeldoffre_pcperso.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ appeldoffre_pcperso.description }}</td>
+                <td>{{ appeldoffre_pcperso.dateLimite ? appeldoffre_pcperso.dateLimite|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_pcperso.dateValidation ? appeldoffre_pcperso.dateValidation|date('Y-m-d') : '' }}</td>
+                <td>{{ appeldoffre_pcperso.nombre }}</td>
+                <td>{{ appeldoffre_pcperso.commentaire }}</td>
+                <td>{{ appeldoffre_pcperso.ram }}</td>
+                <td>{{ appeldoffre_pcperso.storage }}</td>
+                <td>{{ appeldoffre_pcperso.cpu }}</td>
+                <td>{{ appeldoffre_pcperso.cpuCores }}</td>
+                <td>{{ appeldoffre_pcperso.cpuThreadsParCore }}</td>
+                <td>{{ appeldoffre_pcperso.cpuMaxClock }}</td>
+                <td>{{ appeldoffre_pcperso.gpu }}</td>
+                <td>{{ appeldoffre_pcperso.gpuMemory }}</td>
+                <td>{{ appeldoffre_pcperso.rapport }}</td>
+                <td>{{ appeldoffre_pcperso.marque }}</td>
+                <td>
+                    <a href="{{ path('appeldoffre_pcperso_show', {'id': appeldoffre_pcperso.id}) }}">show</a>
+                    <a href="{{ path('appeldoffre_pcperso_edit', {'id': appeldoffre_pcperso.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="19">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('appeldoffre_pcperso_new') }}">Create new</a>
+{% endblock %}

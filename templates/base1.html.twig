@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        {% block stylesheets %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% endblock %}
+
+        {% block javascripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        {% endblock %}
+    </head>
+    <body>
+     <nav class="navbar navbar-dark bg-info">
+ <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <a class="navbar-brand mb-0 h1" href="#">Plateforme de reception du matériel informatique </a>
+    <div style="width:100px;"></div>
+
+                    <a class="btn btn-outline-light " href="{{ path('accueil') }}">Accueil</a>
+                    &nbsp;&nbsp;&nbsp;<a class="btn btn-outline-light " href="{{ path('utilisateurs_index') }}">Utilisateurs</a>
+                    &nbsp;&nbsp;&nbsp;<a class="btn btn-outline-light " href="{{ path('appeldoffre_pcsds_index') }}">PC</a>
+                    &nbsp;&nbsp;&nbsp;<a class="btn btn-outline-light " href="{{ path('appeldoffre_pcperso_index') }}">PC_Perso</a>
+                    &nbsp;&nbsp;&nbsp;<a class="btn btn-outline-light " href="{{ path('offredappel_imprimente_index') }}">Imprimente</a>
+                    &nbsp;&nbsp;&nbsp;<a class="btn btn-outline-light " href="{{ path('appeldoffre_routeur_index') }}">Routeur</a>
+                    &nbsp;&nbsp;&nbsp;<a class="btn btn-outline-light " href="{{ path('appeldoffre_switch_index') }}">Switchs</a>
+
+
+</div>
+
+</nav>
+ <div style="margin-right:40px ; margin-left:40px;" >
+
+    <br><br>
+        {% block body %}{% endblock %}
+        <br><br>
+        </div>
+         <br><br>
+    </body>
+</html>
